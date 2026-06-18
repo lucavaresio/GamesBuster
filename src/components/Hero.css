@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Hero.css
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Velo scuro sopra la foto per mantenere leggibile il testo, come nel
+   Figma dove l'immagine è molto desaturata e a basso contrasto */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(5, 10, 20, 0.95) 35%, rgba(5, 10, 20, 0.55) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 640px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent-border);
+  background: var(--color-accent-soft);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.hero__title-accent {
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-secondary-purple) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__description {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}

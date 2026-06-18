@@ -1,0 +1,72 @@
+/* ==========================================================================
+   HomePage.css
+   ========================================================================== */
+
+.home-section {
+  padding: 56px 24px;
+}
+
+.home-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.home-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.home-section__empty {
+  color: var(--color-text-secondary);
+  padding: 24px 0;
+}
+
+.home-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.home-plan-card {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.home-plan-card--highlight {
+  border-color: var(--color-accent-border);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.12);
+}
+
+.home-plan-card__name {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.home-plan-card__price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.home-plan-card__period {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  margin-left: 4px;
+}
+
+.home-plan-card__cta {
+  width: 100%;
+  margin-top: auto;
+}

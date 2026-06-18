@@ -1,0 +1,156 @@
+/* ==========================================================================
+   CloudGamingPage.css
+   ========================================================================== */
+
+.cloud-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 48px 24px;
+}
+
+@media (min-width: 960px) {
+  .cloud-hero {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+}
+
+.cloud-hero__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.cloud-hero__description {
+  margin-top: 12px;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+}
+
+.cloud-hero__highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.cloud-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.cloud-highlight__icon {
+  font-size: 1.3rem;
+}
+
+.cloud-highlight__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+.cloud-highlight__text {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.cloud-hero__panel {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cloud-hero__panel-label {
+  font-size: 0.75rem;
+  color: var(--color-danger);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cloud-hero__panel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: rgba(5, 10, 20, 0.5);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.cloud-library {
+  padding: 24px 24px 56px;
+}
+
+.cloud-plans {
+  padding: 32px 24px 72px;
+  border-top: 1px solid var(--color-border);
+}
+
+.cloud-plans__subtitle {
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+
+.cloud-plans__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.cloud-plan-card {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cloud-plan-card--premium {
+  border-color: var(--color-accent-border);
+}
+
+.cloud-plan-card--ultra {
+  border-color: rgba(255, 0, 119, 0.35);
+  box-shadow: 0 0 28px rgba(255, 0, 119, 0.12);
+}
+
+.cloud-plan-card__name {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.cloud-plan-card__price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.cloud-plan-card__price span {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+}
+
+.cloud-plan-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.cloud-plan-card__cta {
+  width: 100%;
+}

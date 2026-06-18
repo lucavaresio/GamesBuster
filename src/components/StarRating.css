@@ -1,0 +1,26 @@
+/* ==========================================================================
+   StarRating.css
+   ========================================================================== */
+
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.star-rating__stars {
+  display: inline-flex;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+}
+
+.star-rating__star.is-filled {
+  color: var(--color-warning);
+}
+
+.star-rating__value {
+  color: var(--color-text);
+  font-weight: 600;
+}

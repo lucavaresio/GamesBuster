@@ -1,0 +1,215 @@
+/* ==========================================================================
+   GameDetailPage.css
+   ========================================================================== */
+
+.game-detail__hero {
+  position: relative;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.game-detail__hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.game-detail__hero-emoji {
+  font-size: 5rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.5));
+}
+
+.game-detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.game-detail__breadcrumb {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.game-detail__breadcrumb a {
+  color: var(--color-text-secondary);
+}
+
+.game-detail__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-transform: uppercase;
+}
+
+.game-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.game-detail__cloud-badge {
+  margin-top: 4px;
+  width: fit-content;
+}
+
+.game-detail__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 48px 24px;
+}
+
+@media (min-width: 960px) {
+  .game-detail__body {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.game-detail__main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.game-detail__description {
+  margin-top: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+.game-detail__no-reviews {
+  color: var(--color-text-muted);
+  margin-top: 12px;
+}
+
+.review-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.review-item {
+  padding: 18px 20px;
+}
+
+.review-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-item__username {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.review-item__comment {
+  margin-top: 8px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.review-item__date {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.review-form {
+  margin-top: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-form__title {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.review-form__row {
+  display: flex;
+  gap: 12px;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  background: rgba(5, 10, 20, 0.6);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.review-form input {
+  flex: 1;
+}
+
+.review-form textarea {
+  resize: vertical;
+}
+
+.game-detail__sidebar {
+  align-self: start;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 100px;
+}
+
+.game-detail__format-select {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.game-detail__price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.game-detail__buy-btn {
+  width: 100%;
+}
+
+.game-detail__specs {
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.game-detail__specs div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.game-detail__specs dt {
+  color: var(--color-text-muted);
+}
+
+.game-detail__specs dd {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.game-detail__similar {
+  padding: 0 24px 64px;
+}

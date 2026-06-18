@@ -1,0 +1,199 @@
+/* ==========================================================================
+   App.css — Classi di utilità condivise tra più componenti/pagine
+   ==========================================================================
+
+/* L'elemento <main> deve "espandersi" per occupare lo spazio libero,
+   così il Footer resta sempre in fondo anche nelle pagine con poco
+   contenuto (il #root in index.css è impostato a display:flex column) */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Bottoni ---
+   Tre varianti viste nel Figma: pieno/glow (azione principale), outline
+   (azione secondaria) e "ghost" (azione terziaria, es. link testuali). */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 14px 28px;
+  font-size: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #00b8cc 100%);
+  color: var(--color-bg);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.35);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 0 26px rgba(0, 229, 255, 0.55);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--color-text-muted);
+  color: var(--color-text);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-accent);
+  padding: 8px 4px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 600;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.btn-danger-soft {
+  background: rgba(255, 0, 119, 0.05);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-danger);
+  text-transform: none;
+  letter-spacing: normal;
+  font-family: var(--font-body);
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+.btn-danger-soft:hover:not(:disabled) {
+  background: rgba(255, 0, 119, 0.12);
+}
+
+/* --- Badge / etichette colorate ---
+   Usate per piattaforma, condizione, stato ordine/trade-in, ecc. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge-cyan {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.3);
+  color: var(--color-accent);
+}
+
+.badge-green {
+  background: rgba(57, 255, 20, 0.1);
+  border-color: rgba(57, 255, 20, 0.25);
+  color: var(--color-success);
+}
+
+.badge-pink {
+  background: rgba(255, 0, 119, 0.1);
+  border-color: rgba(255, 0, 119, 0.25);
+  color: var(--color-danger);
+}
+
+.badge-gray {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-secondary);
+}
+
+.badge-purple {
+  background: rgba(123, 47, 190, 0.15);
+  border-color: rgba(123, 47, 190, 0.35);
+  color: #c084fc;
+}
+
+/* --- Intestazione di sezione ---*/
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-heading::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.section-heading h2 {
+  font-size: 1.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* --- Card generica con il "glow" ciano sul bordo, usata come base per
+   GameCard e altri blocchi a riquadro --- */
+.surface-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Stato vuoto / messaggio informativo, riusato in liste senza
+   risultati (carrello vuoto, nessun gioco trovato, ecc.) --- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--color-text-secondary);
+}
+
+.empty-state h3 {
+  color: var(--color-text);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* --- Testo accessibile solo agli screen reader --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

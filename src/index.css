@@ -1,0 +1,157 @@
+/* ==========================================================================
+   index.css — Stili globali e Design Tokens di GamesBuster
+   ==========================================================================
+   Qui definiamo le "variabili CSS" (custom properties) che rappresentano
+   il design system del progetto, estratto dal file Figma del team:
+   - palette colori (sfondo scuro + accenti neon)
+   - font (Barlow Condensed per i titoli, Inter per i testi)
+   - spaziature/raggio dei bordi ricorrenti
+   Definirle una sola volta qui ci permette di riusarle in tutti i file
+   .css dei componenti con `var(--nome-variabile)`, così se in futuro
+   vogliamo cambiare il colore principale del sito basta modificarlo
+   in un solo posto.
+   ========================================================================== */
+
+/* Importiamo i due font usati nel mockup Figma direttamente da Google Fonts.
+   Barlow Condensed = font "tech/squadrato" per titoli e bottoni.
+   Inter = font leggibile per paragrafi, descrizioni, dati numerici. */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- Colori di sfondo --- */
+  --color-bg: #050a14;               /* sfondo principale di tutta l'app */
+  --color-surface: #0d1525;          /* sfondo di footer e blocchi piatti */
+  --color-surface-soft: rgba(13, 21, 37, 0.6);  /* header con effetto vetro */
+  --gradient-card: linear-gradient(160deg, rgba(18, 30, 53, 0.95) 0%, rgba(13, 21, 37, 0.98) 100%);
+
+  /* --- Colore principale (accento ciano neon) --- */
+  --color-accent: #00e5ff;
+  --color-accent-soft: rgba(0, 229, 255, 0.1);
+  --color-accent-border: rgba(0, 229, 255, 0.3);
+  --color-accent-glow: rgba(0, 229, 255, 0.5);
+
+  /* --- Colori secondari del gradiente "hero" --- */
+  --color-secondary-purple: #7b2fbe;
+  --color-secondary-blue: #3b82f6;
+
+  /* --- Colori di stato --- */
+  --color-success: #39ff14;   /* es. "In Stock", spedizione gratuita */
+  --color-danger: #ff0077;    /* es. sconti, rimuovi dal carrello */
+  --color-warning: #ffb800;   /* es. badge "Hot" */
+
+  /* --- Colori testo --- */
+  --color-text: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+
+  /* --- Bordi --- */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* --- Font --- */
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* --- Raggi di curvatura ricorrenti nel mockup --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* --- Larghezza massima dei contenuti (come nel Figma, max 1920px) --- */
+  --content-max-width: 1400px;
+
+  color-scheme: dark;
+}
+
+/* Reset di base: rimuoviamo i margini predefiniti del browser e impostiamo
+   il "box model" coerente su tutti gli elementi */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tutti i titoli usano il font "display" condensato, in stile UPPERCASE
+   come nel mockup (lo trasformiamo via CSS così nel JSX scriviamo testo
+   normale e leggibile) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Contenitore centrato riutilizzato in (quasi) tutte le pagine, equivalente
+   al "max-w-[1920px] mx-auto px-[48px]" che si vede ripetuto nel Figma */
+.page-container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: 0 48px;
+  }
+}
+
+/* Focus visibile per accessibilità da tastiera (richiesto dai requisiti
+   non funzionali del progetto: "Accessibilità WCAG 2.1 livello AA") */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Rispettiamo la preferenza utente di reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

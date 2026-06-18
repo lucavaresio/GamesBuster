@@ -1,0 +1,134 @@
+/* ==========================================================================
+   TradeInPage.css
+   ========================================================================== */
+
+.trade-page {
+  padding: 32px 24px 64px;
+}
+
+.trade-catalog-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.trade-card {
+  overflow: hidden;
+}
+
+.trade-card__cover {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+}
+
+.trade-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.trade-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.trade-card__value {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.trade-card__value strong {
+  color: var(--color-success);
+}
+
+.trade-card .btn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.trade-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+
+.trade-modal {
+  width: 100%;
+  max-width: 380px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trade-modal__value {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.trade-modal__label {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+}
+
+.trade-modal select {
+  background: rgba(5, 10, 20, 0.6);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  color: var(--color-text);
+}
+
+.trade-modal__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.trade-modal__actions .btn {
+  flex: 1;
+}
+
+.trade-requests {
+  margin-top: 56px;
+}
+
+.trade-requests__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.trade-request-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.trade-request-item__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.trade-request-item__meta {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
