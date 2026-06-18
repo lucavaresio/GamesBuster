@@ -1,37 +1,23 @@
 /* ==========================================================================
    api.js 
-   ==========================================================================
-   Questo file è l'UNICO punto del progetto che conosce l'URL del server.
-   Ogni pagina importa da qui le funzioni di cui ha bisogno (getGames,
-   getPlans, addToCart, ...) invece di scrivere fetch() sparsi ovunque:
-   se in futuro l'URL del backend cambia, lo aggiorniamo in un solo posto.
    ========================================================================== */
 
-const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://mock-api-server-production-7f5d.up.railway.app/gamebuster/api';
+// 1. Usiamo l'indirizzo del server locale di Vite + il prefisso del proxy
+const PROXY_PREFIX = '/api';
+const BASE_URL = `${window.location.origin}${PROXY_PREFIX}`;
 
-/**
- * ID dell'utente "loggato" per questa demo.
- * Il progetto non prevede ancora una vera pagina di login/registrazione
- * (la "Profile Page" è stata esclusa da questo lavoro), quindi per poter
- * mostrare comunque carrello, wishlist, ordini e trade-in funzionanti
- * simuliamo un utente già autenticato con id = 1, esattamente come fa
- * il mockup Figma che mostra sempre un profilo nell'header (mai un
- * bottone "Accedi").
- */
 export const CURRENT_USER_ID = 1;
 
 /**
  * Funzione helper di basso livello: costruisce l'URL con eventuali query
  * string e gestisce gli errori HTTP in modo uniforme.
- *
- * @param {string} path - es. '/games' oppure '/games/3'
- * @param {object} [params] - query string, es. { platform: 'PS5' }
  */
 async function apiGet(path, params) {
+  // Ora costruisce correttamente: http://localhost:5173/api/games
   const url = new URL(BASE_URL + path);
+  
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
-      // Ignoriamo i parametri vuoti/undefined così non sporchiamo l'URL
       if (value !== undefined && value !== null && value !== '') {
         url.searchParams.set(key, value);
       }
@@ -54,7 +40,6 @@ async function apiSend(method, path, body) {
   if (!response.ok) {
     throw new Error(`Errore ${response.status} chiamando ${method} ${path}`);
   }
-  // Le DELETE a volte non hanno un body da parsare
   const text = await response.text();
   return text ? JSON.parse(text) : null;
 }

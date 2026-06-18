@@ -1,17 +1,6 @@
 /* ==========================================================================
    CartContext.jsx
-   ==========================================================================
-   Perché un Context e non semplici useState in ogni pagina?
-   Il numero di articoli nel carrello deve essere visibile nella NavBar
-   (che sta nel Layout, sopra a tutte le pagine) E nella CartPage. Senza
-   un Context dovremmo "far risalire" lo stato fino al componente comune
-   più vicino (App.jsx) e poi passarlo in giù con le props — scomodo e
-   difficile da mantenere quando l'albero di componenti cresce.
-
-   Il Context risolve questo: chi ha bisogno dei dati del carrello chiama
-   semplicemente l'hook `useCart()` e li trova già pronti, da qualunque
-   punto dell'app si trovi.
-   ========================================================================== */
+   ==========================================================================*/
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { CURRENT_USER_ID, addCartItem, getCartItems, removeCartItem, updateCartItem } from '../lib/api';
