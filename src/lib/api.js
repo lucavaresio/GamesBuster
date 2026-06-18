@@ -3,8 +3,7 @@
    ========================================================================== */
 
 // 1. Usiamo l'indirizzo del server locale di Vite + il prefisso del proxy
-const PROXY_PREFIX = '/api';
-const BASE_URL = `${window.location.origin}${PROXY_PREFIX}`;
+const BASE_URL = `/api`;
 
 export const CURRENT_USER_ID = 1;
 
@@ -85,14 +84,21 @@ export function getGames(filters = {}) {
  * gli HEADER della risposta, non solo il body JSON.
  */
 export async function getGamesWithCount(filters = {}) {
-  const url = new URL(BASE_URL + '/games');
+  let urlString = `${BASE_URL}/games`;
+
+  const queryParams = new URLSearchParams();
   Object.entries(filters).forEach(([key, value]) => {
     if (value !== undefined && value !== null && value !== '') {
-      url.searchParams.set(key, value);
+      queryParams.set(key, value);
     }
   });
 
-  const response = await fetch(url.toString());
+  const queryString = queryParams.toString();
+  if (queryString) {
+    urlString += `?${queryString}`;
+  }
+
+  const response = await fetch(urlString);
   if (!response.ok) {
     throw new Error(`Errore ${response.status} chiamando /games`);
   }
