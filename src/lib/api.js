@@ -1,9 +1,9 @@
 /* ==========================================================================
-   api.js 
+   api.js - Versione Corretta per Localhost e Vercel
    ========================================================================== */
 
-// 1. Usiamo l'indirizzo del server locale di Vite + il prefisso del proxy
-const BASE_URL = `/api`;
+// Usiamo il percorso relativo puro. I browser capiranno da soli di chiamare il dominio corrente.
+const BASE_URL = '/api'; 
 
 export const CURRENT_USER_ID = 1;
 
@@ -12,18 +12,25 @@ export const CURRENT_USER_ID = 1;
  * string e gestisce gli errori HTTP in modo uniforme.
  */
 async function apiGet(path, params) {
-  // Ora costruisce correttamente: http://localhost:5173/api/games
-  const url = new URL(BASE_URL + path);
+  // Costruiamo la stringa dell'URL unendo semplicemente i pezzi (es: /api + /games -> /api/games)
+  let urlString = `${BASE_URL}${path}`;
   
   if (params) {
+    const queryParams = new URLSearchParams();
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null && value !== '') {
-        url.searchParams.set(key, value);
+        queryParams.set(key, value);
       }
     });
+    
+    // Se ci sono filtri, appendiamo la query string alla fine del percorso
+    const queryString = queryParams.toString();
+    if (queryString) {
+      urlString += `?${queryString}`;
+    }
   }
 
-  const response = await fetch(url.toString());
+  const response = await fetch(urlString);
   if (!response.ok) {
     throw new Error(`Errore ${response.status} chiamando ${path}`);
   }
@@ -31,7 +38,7 @@ async function apiGet(path, params) {
 }
 
 async function apiSend(method, path, body) {
-  const response = await fetch(BASE_URL + path, {
+  const response = await fetch(`${BASE_URL}${path}`, {
     method,
     headers: { 'Content-Type': 'application/json' },
     body: body ? JSON.stringify(body) : undefined,
