@@ -47,9 +47,8 @@ export default function ShopPage() {
   const [availableGenres, setAvailableGenres] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Al primo caricamento, leggiamo un campione ampio del catalogo per
-  // estrarre la lista REALE dei generi disponibili (non indoviniamo nomi
-  // a caso: usiamo solo quelli che esistono davvero nei dati).
+  // Al primo caricamento, legge un campione ampio del catalogo per
+  // estrarre la lista REALE dei generi disponibili 
   useEffect(() => {
     getGames({ _limit: 200 })
       .then((all) => {
@@ -59,7 +58,7 @@ export default function ShopPage() {
       .catch((err) => console.error('Errore nel recupero dei generi:', err));
   }, []);
 
-  // Ricarichiamo il catalogo ogni volta che cambia un filtro, l'ordine
+  // Ricarica il catalogo ogni volta che cambia un filtro, l'ordine
   // oppure la pagina. Il "debounce" sulla ricerca testuale evita di
   // interrogare il server ad ogni singolo tasto premuto: aspettiamo
   // 350ms di pausa nella digitazione prima di lanciare la richiesta.
@@ -104,8 +103,7 @@ export default function ShopPage() {
   const totalPages = useMemo(() => Math.max(1, Math.ceil(totalCount / PAGE_SIZE)), [totalCount]);
 
   // Ogni volta che l'utente cambia un filtro diverso dalla pagina,
-  // torniamo automaticamente a pagina 1 (altrimenti potrebbe restare su
-  // una pagina che, col nuovo filtro, non esiste più).
+  // torna automaticamente a pagina 1 
   function updateFilter(setter) {
     return (value) => {
       setter(value);

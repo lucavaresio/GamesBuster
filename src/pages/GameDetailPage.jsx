@@ -29,7 +29,7 @@ export default function GameDetailPage() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
-  // Generiamo il percorso dinamico dell'immagine locale .avif partendo dal titolo del gioco
+  // Genera il percorso dinamico dell'immagine locale .avif partendo dal titolo del gioco
   const localImageSrc = game ? getGameImageUrl(game.title) : '';
   const [showImage, setShowImage] = useState(false);
 
@@ -49,7 +49,7 @@ export default function GameDetailPage() {
         setGame(gameData);
         setSelectedFormat(gameData.formats?.[0] ?? 'Digitale');
         
-        // Calcoliamo e impostiamo lo stato iniziale dell'immagine basandoci sul titolo caricato
+        // Calcola e imposta lo stato iniziale dell'immagine basandoci sul titolo caricato
         const imagePath = getGameImageUrl(gameData.title);
         setShowImage(Boolean(imagePath));
 

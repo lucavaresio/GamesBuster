@@ -12,7 +12,7 @@ export function CartProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Carichiamo il carrello dell'utente "loggato" non appena l'app parte,
+  // Carica il carrello dell'utente "loggato" non appena l'app parte,
   // così la NavBar mostra subito il numero corretto di articoli.
   const refresh = useCallback(async () => {
     try {
@@ -31,8 +31,8 @@ export function CartProvider({ children }) {
     // NOTA: la regola eslint "react-hooks/set-state-in-effect" segnalerebbe
     // questa chiamata, ma il pattern "refresh() al mount" è esattamente
     // quello documentato da React per il data-fetching dentro un Effect
-    // (vedi https://react.dev/learn/synchronizing-with-effects). La
-    // disabilitiamo qui in modo puntuale e motivato, invece di riscrivere
+    // (vedi https://react.dev/learn/synchronizing-with-effects). viene
+    // disabilitata qui in modo puntuale e motivato, invece di riscrivere
     // un codice corretto solo per accontentare il linter.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     refresh();

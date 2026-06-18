@@ -3,7 +3,7 @@
    ==========================================================================
    Componente "puro" (riceve solo props, non ha stato interno): trasforma
    un numero (es. 4.5) in una fila di stelle piene/vuote più il numero
-   di recensioni, come visto nelle card del Figma ("★★★★☆ 4.8 (3.1k)").
+   di recensioni ("★★★★☆ 4.8 (3.1k)").
    ========================================================================== */
 
 export default function StarRating({ rating = 0, reviewCount }) {

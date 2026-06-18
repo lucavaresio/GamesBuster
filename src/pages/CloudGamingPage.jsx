@@ -12,7 +12,7 @@ import Loader from '../components/Loader';
 import { getCloudGames, getPlans } from '../lib/api';
 import './CloudGamingPage.css';
 
-// Fallback (vedi commento sopra) basato sulla slide della presentazione.
+// Fallback 
 const FALLBACK_FEATURES = {
   standard: ['Accesso e-commerce completo', 'Acquisto digitale e fisico', 'Trade-in giochi usati'],
   premium: ['Tutto del piano Standard', 'Cloud Gaming — giochi extra', 'Vendite ID2I illimitate', 'Sconti mensili su titoli selezionati'],

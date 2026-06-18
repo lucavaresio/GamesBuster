@@ -1,8 +1,8 @@
 /* ==========================================================================
-   api.js - Versione Corretta per Localhost e Vercel
+   api.js 
    ========================================================================== */
 
-// Usiamo il percorso relativo puro. I browser capiranno da soli di chiamare il dominio corrente.
+// Usato il percorso relativo puro. I browser capiranno da soli di chiamare il dominio corrente.
 const BASE_URL = '/api'; 
 
 export const CURRENT_USER_ID = 1;
@@ -75,10 +75,8 @@ export function updateUser(id, patch) {
 /**
  * Recupera il catalogo giochi applicando i filtri supportati dal server
  * (vedi sezione "Games" della documentazione API).
- * @param {object} filters - platform, genre, featured, heroFeatured,
- *                            title_like, cloudPlan, _sort, _order,
- *                            _page, _limit
- */
+  */
+
 export function getGames(filters = {}) {
   return apiGet('/games', filters);
 }
@@ -87,8 +85,7 @@ export function getGames(filters = {}) {
  * Variante di getGames che restituisce anche il numero totale di
  * risultati che soddisfano il filtro (header X-Total-Count inviato da
  * json-server), necessario per calcolare il numero di pagine nello
- * Shop. La teniamo separata da apiGet perché qui ci serve leggere
- * gli HEADER della risposta, non solo il body JSON.
+ * Shop.
  */
 export async function getGamesWithCount(filters = {}) {
   let urlString = `${BASE_URL}/games`;

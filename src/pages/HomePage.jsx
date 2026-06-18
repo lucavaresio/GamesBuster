@@ -27,7 +27,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Lanciamo le due richieste in parallelo con Promise.all invece che
+    // Lancia le due richieste in parallelo con Promise.all invece che
     // una dopo l'altra: la pagina è pronta non appena ARRIVA LA PIÙ LENTA
     // delle due, non la somma dei tempi di entrambe.
     let isCancelled = false;
@@ -52,7 +52,7 @@ export default function HomePage() {
     loadHomeData();
 
     // Cleanup: se l'utente cambia pagina prima che la fetch finisca,
-    // evitiamo di aggiornare lo stato di un componente non più montato.
+    // evita di aggiornare lo stato di un componente non più montato.
     return () => {
       isCancelled = true;
     };
